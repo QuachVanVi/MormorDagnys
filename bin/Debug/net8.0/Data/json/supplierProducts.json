@@ -1,0 +1,40 @@
+[
+    {
+        "supplierId": 1,
+        "productId": 1,
+        "itemNumber": "K62J21",
+        "price": 70.00
+    },
+    {
+        "supplierId": 2,
+        "productId": 2,
+        "itemNumber": "BH28FS",
+        "price": 50.00
+    },
+    {
+        "supplierId": 3,
+        "productId": 3,
+        "itemNumber": "L1S2FN",
+        "price": 70.00
+    },
+    {
+        "supplierId": 4,
+        "productId": 4,
+        "itemNumber": "XAJ21F",
+        "price": 110.00
+    },
+   
+    {
+        "supplierId": 4,
+        "productId": 5,
+        "itemNumber": "FNW1235",
+        "price": 59.95
+    },
+    {
+        "supplierId": 2,
+        "productId": 1,
+        "itemNumber": "K62J21",
+        "price": 75
+    }
+    
+]

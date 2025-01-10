@@ -1,0 +1,32 @@
+[
+    {
+        "itemNumber": "K62J21",
+        "productId": 1,
+        "productName": "Bröd",
+        "price": 25.95
+    },
+    {
+        "itemNumber": "BH28FS",
+        "productId": 2,
+        "productName": "Tårtor",
+        "price": 49.95
+    },
+    {
+        "itemNumber": "L1S2FN",
+        "productId": 3,
+        "productName": "Kakor",
+        "price": 70.00
+    },
+    {
+        "itemNumber": "XAJ21F",
+        "productId": 4,
+        "productName": "Croissant",
+        "price": 60.95
+    },
+    {
+        "itemNumber": "FNW1235",
+        "productId": 5,
+        "productName": "ChokladMuffins",
+        "price": 40.00
+    }
+]

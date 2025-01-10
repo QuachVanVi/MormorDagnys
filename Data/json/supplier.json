@@ -1,0 +1,30 @@
+[
+    {
+        "supplierId" : 1,
+       "supplierName" : "JÖNKÖPING Grossisten AB",
+       "contactPerson":  "Gustav Andersson",
+       "supplierPhone": "070-2194210",
+       "supplierEmail": "jönköpingG-AB@gmail.com"
+    },
+    {
+        "supplierId" : 2,
+        "supplierName" : "Konditori AB",
+        "contactPerson":  "Mathias Salo",
+       "supplierPhone": "070-2552882",
+       "supplierEmail": "KonditoriAB@gmail.com"
+    },
+    {
+        "supplierId" : 3,
+        "supplierName" : "ICA Sverige AB",
+        "contactPerson":  "Eric Lundberg",
+        "supplierPhone": "070-211025",
+        "supplierEmail": "IcaSverige@gmail.com"
+    },
+    {
+        "supplierId" : 4,
+        "supplierName" : "EverFresh AB",
+        "contactPerson":  "Klem Thomsen",
+        "supplierPhone": "070-995825",
+        "supplierEmail": "EverFresh@gmail.com"
+    }
+]
