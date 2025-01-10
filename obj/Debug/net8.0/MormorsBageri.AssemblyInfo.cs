@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MormorsBageri")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae3888461be480c8a4b3786e85be69990b412acb")]
 [assembly: System.Reflection.AssemblyProductAttribute("MormorsBageri")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MormorsBageri")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
