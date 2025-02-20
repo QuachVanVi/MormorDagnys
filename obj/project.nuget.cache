@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lnOfNW+L9SY=",
+  "dgSpecHash": "QzJvbqY/yQM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vi_qu\\Programmering\\C#Fortsättning\\MormorDagnys\\MormorsBageri\\MormorsBageri.csproj",
+  "projectFilePath": "C:\\Users\\Vi_qu\\Programmering\\C#Fortsättning\\Testning inlämning\\Test\\MormorsBageri\\MormorsBageri.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vi_qu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Vi_qu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.11\\microsoft.aspnetcore.authentication.jwtbearer.8.0.11.nupkg.sha512",

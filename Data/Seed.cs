@@ -57,6 +57,52 @@ public static async Task LoadSuppliers(DataContext context)
                 await context.SaveChangesAsync();
             }
 }
+public static async Task LoadCustomers(DataContext context)
+        {
+            var options = new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            };
 
+            if(context.Customers.Any()) return;
+            var json = File.ReadAllText("Data/json/customers.json");
+            var customers = JsonSerializer.Deserialize<List<Customer>>(json,options);
 
+            if(customers is not null && customers.Count > 0){
+                await context.Customers.AddRangeAsync(customers);
+                await context.SaveChangesAsync();
+            }
+}
+
+public static async Task LoadAddressTypes(DataContext context)
+  {
+    var options = new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            };
+    if (context.AddressTypes.Any()) return;
+
+    var json = await File.ReadAllTextAsync("Data/json/addressTypes.json");
+    var types = JsonSerializer.Deserialize<List<AddressType>>(json, options);
+
+    if (types is not null && types.Count > 0)
+    {
+      await context.AddressTypes.AddRangeAsync(types);
+      await context.SaveChangesAsync();
+    }
+  }
+  public static async Task LoadOrders(DataContext context)
+  {
+    var options = new JsonSerializerOptions{
+                PropertyNameCaseInsensitive = true
+            };
+    if (context.Orders.Any()) return;
+
+    var json = await File.ReadAllTextAsync("Data/json/orders.json");
+    var order = JsonSerializer.Deserialize<List<Order>>(json, options);
+
+    if (order is not null && order.Count > 0)
+    {
+      await context.Orders.AddRangeAsync(order);
+      await context.SaveChangesAsync();
+    }
+  }
 }

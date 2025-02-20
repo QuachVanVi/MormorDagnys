@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "zlnnq4R7oHfS4kG+VIgWhvrFph5jmOiNovtlFHrjUgI=",
+  "Hash": "g5xLJVJAVcKlXX7fsC+fRf/m+Wee5QRmkqXCs/rF3c0=",
   "Source": "MormorsBageri",
   "BasePath": "_content/MormorsBageri",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

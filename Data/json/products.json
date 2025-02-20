@@ -1,32 +1,42 @@
 [
     {
         "itemNumber": "K62J21",
-        "productId": 1,
+        "id": 1,
         "productName": "Bröd",
-        "price": 25.95
+        "price": 25.95,
+        "quantityPerPackage":7,
+        "weight":"1kg"
     },
     {
         "itemNumber": "BH28FS",
-        "productId": 2,
+        "id": 2,
         "productName": "Tårtor",
-        "price": 49.95
+        "price": 49.95,
+        "quantityPerPackage":3,
+        "weight":"300g"
     },
     {
         "itemNumber": "L1S2FN",
-        "productId": 3,
+        "id": 3,
         "productName": "Kakor",
-        "price": 70.00
+        "price": 70.00,
+        "quantityPerPackage":1,
+        "weight":"200"
     },
     {
         "itemNumber": "XAJ21F",
-        "productId": 4,
+        "id": 4,
         "productName": "Croissant",
-        "price": 60.95
+        "price": 60.95,
+        "quantityPerPackage":4,
+        "weight":"190g"
     },
     {
         "itemNumber": "FNW1235",
-        "productId": 5,
+        "id": 5,
         "productName": "ChokladMuffins",
-        "price": 40.00
+        "price": 40.00,
+        "quantityPerPackage":10,
+        "weight":"210g"
     }
 ]

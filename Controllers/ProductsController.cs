@@ -21,9 +21,13 @@ public class ProductsController(DataContext context) : ControllerBase
         .Include(c => c.SupplierProducts)
         .Select(prod => new
         {
-            ProductNumber = prod.ProductId,
+            ProductNumber = prod.Id,
             Product_Name = prod.ProductName,
             Product_Price = prod.Price,
+            prod.QuantityPerPackage,
+            prod.Weight,
+            prod.BestBeforeDate,
+            prod.ProductionDate,
             SupplierProducts = prod.SupplierProducts
 
             .Select(products => new
@@ -45,13 +49,17 @@ public class ProductsController(DataContext context) : ControllerBase
     public async Task<ActionResult> FindProducts(int id)
     {
         var product = await _context.Products
-        .Where(o => o.ProductId == id)
+        .Where(o => o.Id == id)
         .Select(products => new
         {
-            products.ProductId,
+            products.Id,
             products.ItemNumber,
             products.ProductName,
-            products.Price
+            products.Price,
+            products.ProductionDate,
+            products.BestBeforeDate,
+            products.QuantityPerPackage,
+            products.Weight
         })
         .SingleOrDefaultAsync();
 
@@ -68,26 +76,35 @@ public class ProductsController(DataContext context) : ControllerBase
     {
         var prod = await _context.Products.FirstOrDefaultAsync(p => p.ItemNumber == model.ItemNumber);
 
+        
         if (prod != null)
         {
             return BadRequest(new { success = false, message = $"Produkten existerar redan {0}", model.ProductName });
 
         }
+
+        await _context.SaveChangesAsync();
+
         var product = new Product
         {
+            
             ItemNumber = model.ItemNumber,
-            ProductName = model.ProductName,
+            ProductName = model.ProductName,    
             Price = model.Price,
-            Description = model.Description,
-            Image = model.Image
+            Weight = model.Weight,
+            QuantityPerPackage = model.QuantityPerPackage,
+            ProductionDate = DateTime.Now,
+            BestBeforeDate = DateTime.Now.AddDays(30)
+            
 
         };
+        
         try
         {
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(FindProducts), new{id = product.ProductId}, product);
+            return CreatedAtAction(nameof(FindProducts), new{id = product.Id}, product);
         }
         catch (Exception ex)
         {
@@ -100,7 +117,7 @@ public class ProductsController(DataContext context) : ControllerBase
 
     public async Task<ActionResult> UpdateProductPrice(int id, [FromQuery] double price)
     {
-        var prod = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == id);
+        var prod = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
 
         if(prod == null)
         {
