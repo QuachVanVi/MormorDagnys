@@ -1,7 +1,9 @@
 
 using eshop.api;
 using Microsoft.AspNetCore.Mvc;
+using MormorsBageri.Entities;
 using MormorsBageri.Interfaces;
+using MormorsBageri.ViewModels.Order;
 
 namespace MormorsBageri.Controllers;
 
@@ -17,6 +19,22 @@ public class CustomersController(IUnitOfWork unitOfWork) : ControllerBase
     var customers = await _unitOfWork.CustomerRepository.List();
     return Ok(new { success = true, data = customers });
   }
+
+  [HttpGet("{id}/orders")]
+  public async Task<ActionResult>GeCustomerOrder(int id)
+  {
+    try
+    {
+      return Ok(new { success = true, data = await _unitOfWork.CustomerRepository.GetCustomerOrder(id) });
+    }
+    catch (Exception ex)
+    {
+      return NotFound(new { success = false, message = ex.Message });
+    }
+  
+  }
+
+
 
   [HttpGet("{id}")]
   public async Task<ActionResult> GetCustomer(int id)
@@ -52,4 +70,7 @@ public class CustomersController(IUnitOfWork unitOfWork) : ControllerBase
     }
 
   }
+  
+ 
+       
 }

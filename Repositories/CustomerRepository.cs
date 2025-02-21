@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using eshop.api;
 using Microsoft.EntityFrameworkCore;
 using MormorsBageri.Data;
@@ -5,7 +6,7 @@ using MormorsBageri.Entities;
 using MormorsBageri.Interfaces;
 using MormorsBageri.ViewModels.Address;
 using MormorsBageri.ViewModels.Customer;
-using MormorsBageri.ViewModels.Order;
+
 
 namespace MormorsBageri.Repositories;
 
@@ -65,7 +66,7 @@ public class CustomerRepository(DataContext context, IAddressRepository repo): I
         .Include(c => c.CustomerAddresses)
           .ThenInclude(c => c.Address)
           .ThenInclude(c => c.AddressType)
-        .Include(c => c.Orders)
+        
            
         .SingleOrDefaultAsync();
 
@@ -103,8 +104,6 @@ public class CustomerRepository(DataContext context, IAddressRepository repo): I
   public async Task<IList<CustomersViewModel>> List()
   {
     var response = await _context.Customers
-    .Include(c => c.Orders)
-     .ThenInclude(c => c.Product)
     .ToListAsync();
     var customers = response.Select(c => new CustomersViewModel
     {
@@ -112,21 +111,36 @@ public class CustomerRepository(DataContext context, IAddressRepository repo): I
       StoreName = c.StoreName,
       ContactPerson = c.ContactPerson,
       Email = c.Email,
-      Phone = c.Phone,
-      Orders = c.Orders.Select(c => new OrderBaseViewModel{
-        Id = c.Id,
-        ProductId = c.ProductId,
-        ProductName = c.Product.ProductName,
-        CustomerId = c.CustomerId,
-        OrderDate = c.OrderDate,
-        Price = c.Price,
-        Quantity = c.Quantity
-      }).ToList()
+      Phone = c.Phone
       
     });
 
     return [.. customers];
   }
+    public async Task<object> GetCustomerOrder(int customerId)
+    {
+        
+    var customer = await _context.Customers
+    .Where(c => c.Id == customerId)
+    .Include(o => o.Orders)
+    .ThenInclude(c => c.Product)
 
-   
-}
+    .SingleOrDefaultAsync();
+    if(customer == null)return new{success = false, message = $"Kunden hittade ej!"};
+
+    var orders = customer.Orders.Select(o => new {
+      ProductName = o.Product.ProductName,
+        ProductId = o.ProductId,
+        Quantity = o.Quantity,
+        Price = o.Price,
+        OrderDate = o.OrderDate
+    }).ToList();
+
+
+    return new{success = true,Data=new{
+      CustomerId = customer.Id,
+      StoreName = customer.StoreName,
+      Orders = orders
+    }
+    };
+}}

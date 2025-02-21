@@ -3,7 +3,7 @@ namespace MormorsBageri.ViewModels.Order;
 
 public class OrderBaseViewModel
 {
-    public int Id { get; set; }
+    // public int Id { get; set; }
     public int CustomerId { get; set; }
     public string ProductName { get; set; }
     public int ProductId { get; set; }

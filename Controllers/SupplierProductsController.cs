@@ -58,10 +58,10 @@ public class SupplierProductsController(DataContext context) : ControllerBase
         })
         .SingleOrDefaultAsync(sp => sp.SupplierNumber == id);
 
-        if (supplierProduct != null)
-            return Ok(new { success = true, supplierProduct });
-        else
+        if (supplierProduct is null)
             return NotFound(new { success = false, message = $"Tyvärr kunde vi inte hitta leverans produkten med id: {id}" });
+        else
+            return Ok(new { success = true,StatusCode=200, supplierProduct });
     }
 
     [HttpPost()]
