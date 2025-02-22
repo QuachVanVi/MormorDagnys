@@ -25,11 +25,7 @@ public class DataContext : DbContext
         {
             modelBuilder.Entity<SupplierProduct>().HasKey(o => new { o.ProductId, o.SupplierId });
             modelBuilder.Entity<CustomerAddress>().HasKey(c => new { c.CustomerId,c.AddressId});
-        //     modelBuilder.Entity<Product>()
-        // .HasOne(p => p.Date) 
-        // .WithMany(d => d.Products) 
-        // .HasForeignKey(p => p.DateId) 
-        // .OnDelete(DeleteBehavior.Cascade);
+       
 
         }
 }

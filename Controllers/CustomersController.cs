@@ -70,7 +70,18 @@ public class CustomersController(IUnitOfWork unitOfWork) : ControllerBase
     }
 
   }
-  
+   [HttpPatch("{id}")]
+  public async Task<ActionResult>UpdateCustomer(int id, [FromQuery] string contactPerson){
+    try
+    {
+      return Ok(new{success = true, data = await _unitOfWork.CustomerRepository.Update(id,contactPerson)});
+    }
+    catch (Exception ex)
+    {
+      
+      return NotFound(new { success = false, message = ex.Message });
+    }
+  }
  
        
 }

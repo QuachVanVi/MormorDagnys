@@ -11,5 +11,6 @@ public interface ICustomerRepository
     public Task<CustomerViewModel> Find(int id);
     public Task<bool> Add(CustomerPostViewModel model);
     public Task<object>GetCustomerOrder(int customerId);
+    public Task<CustomerPatchViewModel>Update(int id, string contactPerson);
 
 }

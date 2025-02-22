@@ -143,4 +143,29 @@ public class CustomerRepository(DataContext context, IAddressRepository repo): I
       Orders = orders
     }
     };
-}}
+}
+ public async Task<CustomerPatchViewModel> Update(int id, string contactPerson)
+    { var customer = await _context.Customers.FirstOrDefaultAsync(p => p.Id == id);
+
+        if(customer == null)
+       {
+            throw new Exception($"Produkten som du försöker uppdatera existerar inte längre " );
+
+        }
+        customer.ContactPerson = contactPerson;
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        return new CustomerPatchViewModel{
+          Id = customer.Id,
+          ContactPerson = customer.ContactPerson
+        };
+    
+        
+    }
+}
