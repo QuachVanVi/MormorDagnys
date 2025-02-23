@@ -24,6 +24,6 @@ WORKDIR /app
 
 COPY --from=build /app/Release ./
 
-EXPOSE 5002
+EXPOSE 8080
 
 ENTRYPOINT [ "dotnet", "MormorsBageri.dll" ]
