@@ -135,26 +135,4 @@ public class ProductsController(DataContext context) : ControllerBase
         }
         return NoContent();
     }
-    // public async Task<ActionResult> UpdateProductPrice(int id,  product)
-    // {
-    //     var productToUpdate = await _context.Products
-    //     .Where(c => c.ProductId == id)
-    //     .SingleOrDefaultAsync();
-
-    //     if (productToUpdate is null) return BadRequest($"Det finns ingen produkt med produktnummer: {id}");
-
-    //     foreach (var prod in product.SupplierProduct)
-    //     {
-
-    //         foreach (var item in productToUpdate.SupplierProducts)
-    //         {
-    //             item.ProductId = prod.ProductId;
-    //             item.Price = prod.Price;
-    //             item.ItemNumber = prod.ItemNumber;
-    //         }
-
-    //     }
-    //     await _context.SaveChangesAsync();
-    //     return NoContent();
-    // }
 }

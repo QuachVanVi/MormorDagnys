@@ -11,8 +11,8 @@ using MormorsBageri.Data;
 namespace MormorsBageri.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250220123149_AddedNewEnt")]
-    partial class AddedNewEnt
+    [Migration("20250223005510_SqliteInit")]
+    partial class SqliteInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

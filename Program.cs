@@ -11,12 +11,6 @@ builder.Services.AddDbContext<DataContext>(options =>{
     options.UseSqlite(builder.Configuration.GetConnectionString("DevConnection"));
 //    options.UseMySql(builder.Configuration.GetConnectionString("MySQL"), serverVersion);
 });
-// builder.Services.AddControllers().AddJsonOptions(options =>
-// {
-//     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-//     options.JsonSerializerOptions.WriteIndented = true;
-// });
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 

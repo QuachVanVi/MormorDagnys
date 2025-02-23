@@ -1,3 +1,23 @@
 [
-{}
+    {
+        "id": 1,
+        "storeName": "Max Burgers",
+        "contactPerson": "Sabina Salazar",
+        "email": "MAX@SE.SE",
+        "phone": "020-24142"
+      },
+      {
+        "id": 2,
+        "storeName": "KFC",
+        "contactPerson": "Håkan Jönsson",
+        "email": "KFC@DK.DK",
+        "phone": "020-221133"
+      },
+      {
+        "id": 3,
+        "storeName": "Quang AB",
+        "contactPerson": "Quang tran",
+        "email": "q3@gmail.com",
+        "phone": "032-323232"
+      }
 ]
